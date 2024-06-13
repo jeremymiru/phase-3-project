@@ -12,7 +12,7 @@ def setup_database():
             email TEXT NOT NULL
         )
     ''')
-
+.
     cursor.execute('''
         CREATE TABLE IF NOT EXISTS tables (
             id INTEGER PRIMARY KEY AUTOINCREMENT,
