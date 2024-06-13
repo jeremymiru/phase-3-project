@@ -1,21 +1,21 @@
 import sqlite3
 
 class Reservation:
-    def __init__(self, id, customer_id, table_id, reservation_date, time_slot):
+    def __init__(self, id, customer_id, table_id, reservation_date, time):
         self.id = id
         self.customer_id = customer_id
         self.table_id = table_id
         self.reservation_date = reservation_date
-        self.time_slot = time_slot
+        self.time = time
 
     
-    def create(customer_id, table_id, reservation_date, time_slot):
+    def create(customer_id, table_id, reservation_date, time):
         connection = sqlite3.connect('restaurant.db')
         cursor = connection.cursor()
         cursor.execute('''
-        INSERT INTO reservations (customer_id, table_id, reservation_date, time_slot)
+        INSERT INTO reservations (customer_id, table_id, reservation_date, time)
         VALUES (?, ?, ?, ?)
-        ''', (customer_id, table_id, reservation_date, time_slot))
+        ''', (customer_id, table_id, reservation_date, time))
         connection.commit()
         connection.close()
 
@@ -29,14 +29,14 @@ class Reservation:
         return reservations
 
     
-    def update(reservation_id, customer_id, table_id, reservation_date, time_slot):
+    def update(reservation_id, customer_id, table_id, reservation_date, time):
         connection = sqlite3.connect('restaurant.db')
         cursor = connection.cursor()
         cursor.execute('''
         UPDATE reservations
-        SET customer_id = ?, table_id = ?, reservation_date = ?, time_slot = ?
+        SET customer_id = ?, table_id = ?, reservation_date = ?, time = ?
         WHERE id = ?
-        ''', (customer_id, table_id, reservation_date, time_slot, reservation_id))
+        ''', (customer_id, table_id, reservation_date, time, reservation_id))
         connection.commit()
         connection.close()
 
