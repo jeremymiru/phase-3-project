@@ -39,7 +39,7 @@ class Reservation:
         ''', (customer_id, table_id, reservation_date, time, reservation_id))
         connection.commit()
         connection.close()
-f
+
     
     def delete(reservation_id):
         connection = sqlite3.connect('restaurant.db')
