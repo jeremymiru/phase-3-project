@@ -6,7 +6,7 @@ class Customer:
         self.name = name
         self.phone = phone
         self.email = email
-
+c
     
     def create(name, phone, email):
         connection = sqlite3.connect('restaurant.db')

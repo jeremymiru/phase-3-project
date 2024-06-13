@@ -5,7 +5,7 @@ class Table:
         self.id = id
         self.number = number
         self.capacity = capacity
-
+d
     
     def create(number, capacity):
         connection = sqlite3.connect('restaurant.db')
